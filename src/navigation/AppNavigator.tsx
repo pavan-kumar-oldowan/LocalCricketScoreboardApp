@@ -4,6 +4,10 @@ import MatchSummary from "../app/match-setup/MatchSummaryScreen";
 import RulesConfig from "../app/match-setup/RulesConfigScreen";
 import GuestLoginScreen from "../app/onboarding/GuestLoginScreen";
 import SplashScreen from "../app/onboarding/SplashScreen";
+import PlayerEntry from "../app/team-setup/PlayerEntryScreen";
+import RoleSelection from "../app/team-setup/RoleSelectionScreen";
+import SquadReview from "../app/team-setup/SquadReviewScreen";
+import TeamSetup from "../app/team-setup/TeamNameScreen";
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -11,6 +15,11 @@ export type RootStackParamList = {
   Dashboard: undefined;
   RulesConfig: undefined;
   MatchSummary:undefined;
+  TeamSetup:undefined;
+  PlayerEntry:undefined;
+  SquadReview:undefined;
+  RoleSelection:undefined;
+
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,6 +33,10 @@ export default function AppNavigator() {
         <Stack.Screen name="Dashboard" component={DashboardScreen} />
         <Stack.Screen name ="RulesConfig" component={RulesConfig} />
         <Stack.Screen name="MatchSummary" component={MatchSummary} />
+        <Stack.Screen name="TeamSetup" component={TeamSetup}/>
+        <Stack.Screen name="PlayerEntry" component={PlayerEntry}/>
+        <Stack.Screen name="SquadReview" component={SquadReview}/>
+        <Stack.Screen name="RoleSelection" component={RoleSelection}/>
       </Stack.Navigator>
     
   );
