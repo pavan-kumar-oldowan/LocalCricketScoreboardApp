@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import { useSessionStore } from "../../store/useSessionStore";
 
-export default function DashboardScreen() {
+export default function DashboardScreen({navigation}:any) {
   const guestId = useSessionStore((state) => state.guestId);
 
   return (
@@ -10,7 +10,7 @@ export default function DashboardScreen() {
       <Text>Guest ID: {guestId?.slice(0, 8)}</Text>
 
       <View style={{ marginTop: 30 }}>
-        <Button title="Create New Match" onPress={() => {}} />
+        <Button title="Create New Match" onPress={() => navigation.navigate("RulesConfig")} />
       </View>
     </View>
   );
