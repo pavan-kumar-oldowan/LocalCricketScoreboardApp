@@ -1,9 +1,11 @@
 import { create } from "zustand";
-import { ScoreState } from "../types/scoring";
+import { processBall } from "../engine/scoringEngine";
+import { BallEvent, ScoreState } from "../types/scoring";
+import { useMatchConfigStore } from "./useMatchConfigStore";
 
 interface ScoringStore {
   score: ScoreState;
-  addRun: (runs: number) => void;
+  addBall: (ball: BallEvent) => void;
 }
 
 export const useScoringStore = create<ScoringStore>((set) => ({
@@ -11,14 +13,13 @@ export const useScoringStore = create<ScoringStore>((set) => ({
     runs: 0,
     wickets: 0,
     balls: 0,
+    currentOver: [],
   },
 
-  addRun: (runs) =>
-    set((state) => ({
-      score: {
-        ...state.score,
-        runs: state.score.runs + runs,
-        balls: state.score.balls + 1,
-      },
-    })),
+  addBall: (ball) =>
+    set((state) => {
+      const rules = useMatchConfigStore.getState().rules;
+      const updated = processBall(state.score, ball, rules);
+      return { score: updated };
+    }),
 }));
