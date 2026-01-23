@@ -4,6 +4,7 @@ import MatchSummary from "../app/match-setup/MatchSummaryScreen";
 import RulesConfig from "../app/match-setup/RulesConfigScreen";
 import GuestLoginScreen from "../app/onboarding/GuestLoginScreen";
 import SplashScreen from "../app/onboarding/SplashScreen";
+import LiveScoring from "../app/scoring/LiveScoringScreen";
 import PlayerEntry from "../app/team-setup/PlayerEntryScreen";
 import RoleSelection from "../app/team-setup/RoleSelectionScreen";
 import SquadReview from "../app/team-setup/SquadReviewScreen";
@@ -12,7 +13,6 @@ import MatchStart from "../app/toss/MatchStartScreen";
 import OpeningPlayers from "../app/toss/OpeningPlayersScreen";
 import TossDecision from "../app/toss/TossDecisionScreen";
 import Toss from "../app/toss/TossScreen";
-
 export type RootStackParamList = {
   Splash: undefined;
   GuestLogin: undefined;
@@ -27,6 +27,8 @@ export type RootStackParamList = {
   Toss:undefined;
   OpeningPlayers:undefined;
   MatchStart:undefined;
+  LiveScoring:undefined;
+
 
 };
 
@@ -49,7 +51,7 @@ export default function AppNavigator() {
         <Stack.Screen name="TossDecision" component={TossDecision}/>
         <Stack.Screen name="OpeningPlayers" component={OpeningPlayers}/>
         <Stack.Screen name="MatchStart" component={MatchStart}/>
-
+        <Stack.Screen name="LiveScoring" component={LiveScoring}/>
       </Stack.Navigator>
     
   );
